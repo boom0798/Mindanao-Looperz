@@ -65,57 +65,44 @@ const itinerariesData: Record<string, any> = {
   },
   'crown-jewel-loop': {
     id: 'crown-jewel-loop',
-    name: 'Crown Jewel Loop',
-    distance: '600 km',
-    duration: '3-4 Days',
+    name: 'Crown Jewel Hike',
+    distance: '216 KM',
+    duration: '2 Days 1 Night',
     difficulty: 'Beginner',
-    type: 'Multi-day',
+    type: 'Hiking & Riding',
     image: 'https://picsum.photos/seed/davao/1920/1080?blur=1',
     prompts: [
-      "Aerial cityscape sunrise over Davao City with Mount Apo visible in the distance, golden hour lighting, modern tropical city vibe. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
-      "Mountain road adventure in Talaingod, rugged highlands, dramatic clouds, raw untouched landscape. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
-      "Rolling green hills of Bukidnon Communal Ranch, cowboy landscape, wide-angle shot, bright daylight. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
-      "Sea of clouds at Mount Kulago during sunrise, hikers silhouette, cinematic fog, epic mountain atmosphere. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
-      "Tinuy-an Falls multi-layered waterfalls, turquoise water, long exposure silky effect, lush jungle surroundings. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
-      "Enchanted River crystal-clear blue lagoon, underwater visibility, glowing sapphire water, tropical paradise mood. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
-      "Britania Islands white sandbar and turquoise ocean, drone aerial shot, tropical island dreamscape. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
-      "Lake Holon volcanic crater lake, emerald green water surrounded by forested mountains, sunrise mist, peaceful and majestic. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic."
+      "Lake Holon volcanic crater lake, emerald green water surrounded by forested mountains, sunrise mist, peaceful and majestic. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
+      "Trekker standing on the rim of Lake Holon crater, looking down at the turquoise water, adventure gear, morning light. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
+      "Campsite by the shore of Lake Holon, tents under a starry sky, campfire glow, serene mountain lake atmosphere. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic."
     ],
-    overview: 'A cinematic travel route featuring the ultimate Mindanao adventure in the Philippines. Experience the raw beauty of the south, from the bustling city of Davao to the serene waters of Enchanted River and the majestic peaks of Mount Apo.',
+    overview: 'Lake Holon, also known as Lake Maughan, is a pristine crater lake nestled within Mount Melibengoy (formerly Mount Parker) in T’boli, South Cotabato, Philippines. Revered as the “Crown Jewel of the South,” this lake sits approximately 1,359 meters above sea level and spans over 3 square kilometers.',
     highlights: [
-      'Davao City & Mount Apo',
-      'Talaingod Mountain Pass',
-      'Bukidnon Communal Ranch',
-      'Mount Kulago Sea of Clouds',
-      'Tinuy-an Falls',
-      'Enchanted River',
-      'Britania Islands',
-      'Lake Holon'
+      'Lake Holon Crater',
+      'Mount Melibengoy',
+      'T’boli Cultural Experience',
+      'Star Gazing at the Lake',
+      'Sunrise at the Crater Rim'
     ],
     requirements: [
-      'Any well-maintained motorcycle',
-      'Basic riding gear',
-      'Valid Driver\'s License',
-      'Camera for the epic views'
+      'Minor Hiking equipment',
+      'Trekking shoes or sandals',
+      'Light camping gear',
+      'Hydration pack',
+      'Personal first aid kit'
     ],
     daily: [
       {
         day: 1,
-        title: 'Davao to Bukidnon',
-        distance: '150 km',
-        description: 'Start in Davao City, ride through the scenic Talaingod pass and reach the rolling hills of Bukidnon.'
+        title: 'Davao to Lake Holon (Trek & Camp)',
+        distance: '108 KM (Ride) + 5 KM (Trek)',
+        description: 'Travel from Davao to T\'boli, South Cotabato. Begin the trek to the crater lake and set up camp for an overnight stay under the stars.'
       },
       {
         day: 2,
-        title: 'Bukidnon to Surigao del Sur',
-        distance: '200 km',
-        description: 'Head east towards the coast, visiting the majestic Tinuy-an Falls and the mystical Enchanted River.'
-      },
-      {
-        day: 3,
-        title: 'Surigao del Sur to South Cotabato',
-        distance: '250 km',
-        description: 'Ride south along the coast, passing by the Britania Islands before heading inland to Lake Holon.'
+        title: 'Lake Holon to Davao (Descent & Return)',
+        distance: '5 KM (Trek) + 108 KM (Ride)',
+        description: 'Enjoy the sunrise at the lake, trek back to the trailhead, and return to Davao City.'
       }
     ]
   },
