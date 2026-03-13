@@ -11,6 +11,7 @@ const featuredLoops = [
     distance: '803 km',
     days: '4 Days',
     terrain: 'Mixed (Paved & Gravel)',
+    price: '260 USD',
     image: 'https://picsum.photos/seed/talaingod-bukidnon-road/800/600',
     prompts: [
       "Aerial cityscape sunrise over Davao City with Mount Apo visible in the distance, golden hour lighting, modern tropical city vibe. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
@@ -81,11 +82,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            src="https://picsum.photos/seed/motorcycle-adventure/1920/1080"
-            alt="Motorcycle adventure in Mindanao"
+          <GeneratedImage 
+            prompt="A breathtaking ultra-realistic aerial view of the Hinatuan Enchanted River in Surigao del Sur, Philippines, showing a mesmerizing deep-turquoise natural lagoon surrounded by dense tropical rainforest. The water is incredibly clear, revealing dramatic underwater rock formations, deep blue gradients, and mysterious spring depths beneath the surface. The river is enclosed by limestone cliffs and lush jungle vegetation, with sunlight piercing through the canopy and reflecting off the crystal-clear water. The color transitions from emerald green at the shallow edges to glowing sapphire blue in the deeper center, creating a magical and surreal effect. Include small bamboo rafts and a few swimmers floating peacefully on the water to show scale, while schools of fish can be seen faintly beneath the surface. Soft tropical sunlight illuminates the scene, producing sparkling reflections and gentle ripples across the lagoon. Mist rises slightly from the surrounding rainforest, enhancing the mystical atmosphere that makes the river look enchanted. Style: ultra-photorealistic, cinematic drone photography, HDR natural lighting, 8K ultra-detailed textures, tropical rainforest environment, crystal-clear water refraction and reflections, National Geographic travel photography style. Camera: drone aerial shot, wide angle lens, high dynamic range, deep depth of field. Aspect Ratio: 16:9"
+            alt="Hinatuan Enchanted River in Surigao del Sur"
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
@@ -194,6 +194,12 @@ export default function Home() {
                       <Mountain className="w-4 h-4 text-orange-500" />
                       <span>{loop.terrain}</span>
                     </div>
+                    {loop.price && (
+                      <div className="flex items-center gap-2 text-white font-bold text-base mt-2">
+                        <span className="text-orange-500">$</span>
+                        <span>{loop.price}</span>
+                      </div>
+                    )}
                   </div>
                   <Link 
                     to={`/rides/${loop.id}`}
