@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Mountain, Clock, Navigation } from 'lucide-react';
-import { itineraryService } from '../data/iteneraries/services/itineraryService';
-import { ItineraryCarousel } from '../components/ItineraryCarousel';
+import { Map, Mountain, Clock, Navigation } from 'lucide-react';
+import { GeneratedImage } from '../components/GeneratedImage';
+import { GeneratedImageCarousel } from '../components/GeneratedImageCarousel';
 
 const itineraries = [
   {
@@ -10,6 +10,7 @@ const itineraries = [
     name: 'Highlands to hidden water (Ultimate loop)',
     distance: '803 km',
     duration: '4 Days',
+    price: '260 USD',
     difficulty: 'Intermediate',
     type: 'Multi-day',
     image: 'https://picsum.photos/seed/talaingod-bukidnon-road/800/600',
@@ -69,7 +70,7 @@ const itineraries = [
     description: 'A quick escape to the cool mountains of Bukidnon-Davao border.',
   },
   {
-    id: 'surigao-coast-run',
+    id: 'surigao-coast',
     name: 'Surigao Coastal Run',
     distance: '450 km',
     duration: '2-3 Days',
@@ -91,7 +92,6 @@ const itineraries = [
 ];
 
 export default function Rides() {
-  const itineraries = itineraryService.getAll();
   return (
     <div className="w-full pt-24 pb-16">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
@@ -122,20 +122,20 @@ export default function Rides() {
               className="bg-zinc-950 border border-zinc-800 overflow-hidden group flex flex-col"
             >
               <div className="relative h-64 overflow-hidden">
-                  {route.images && route.images.length > 0 ? (
-                    <ItineraryCarousel
-                      images={route.images}
-                      alt={route.name}
-                      className="w-full h-full"
-                    />
-                  ) : (
-                    <img
-                      src={route.image}
-                      alt={route.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      referrerPolicy="no-referrer"
-                    />
-                  )}
+                {route.prompts ? (
+                  <GeneratedImageCarousel 
+                    prompts={route.prompts}
+                    altPrefix={route.name}
+                    className="w-full h-full"
+                  />
+                ) : (
+                  <img 
+                    src={route.image} 
+                    alt={route.name} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    referrerPolicy="no-referrer"
+                  />
+                )}
                 <div className="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 z-30">
                   {route.type}
                 </div>
@@ -143,7 +143,7 @@ export default function Rides() {
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-2xl font-bold uppercase tracking-tight mb-2">{route.name}</h3>
-                <p className="text-zinc-400 text-sm mb-6 flex-grow">{route.overview}</p>
+                <p className="text-zinc-400 text-sm mb-6 flex-grow">{route.description}</p>
                 
                 <div className="grid grid-cols-2 gap-4 mb-6 text-zinc-300 text-sm">
                   <div className="flex items-center gap-2">
@@ -158,6 +158,12 @@ export default function Rides() {
                     <Mountain className="w-4 h-4 text-orange-500" />
                     <span>Difficulty: <span className="text-white font-medium">{route.difficulty}</span></span>
                   </div>
+                  {route.price && (
+                    <div className="flex items-center gap-2 col-span-2 text-white font-bold text-lg mt-2">
+                      <span className="text-orange-500">$</span>
+                      <span>{route.price}</span>
+                    </div>
+                  )}
                 </div>
                 
                 <Link 

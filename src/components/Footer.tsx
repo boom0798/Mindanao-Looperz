@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Youtube, Mail, MapPin, Mountain } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Mountain, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -28,7 +28,7 @@ export default function Footer() {
               <a href="https://www.instagram.com/mindanao_looperz.ph/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-orange-500 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://www.tiktok.com/@bisayangbackpaker" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-orange-500 transition-colors">
+              <a href="https://www.tiktok.com/@mindanaolooperz" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-orange-500 transition-colors">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.63 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                 </svg>
@@ -68,7 +68,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-orange-500 shrink-0" />
-                <span className="text-sm">mindanaolooperz26@gmail.com</span>
+                <a href="mailto:mindanaolooperz26@gmail.com" className="text-sm hover:text-orange-500 transition-colors">mindanaolooperz26@gmail.com</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-orange-500 shrink-0" />
+                <a href="https://wa.me/639913342064" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-orange-500 transition-colors">+63 9913342064 (WhatsApp)</a>
               </li>
             </ul>
           </div>
