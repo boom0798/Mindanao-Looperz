@@ -1,12 +1,6 @@
-import fs from 'fs';
-import path from 'path';
+import manifest from '../../../generated/image-manifest.json';
 
 import type { Itinerary } from '../types/itinerary';
-
-const allowedExtensions = ['.png', '.jpg', '.jpeg', '.webp'];
-const baseDir = 'public/iteneraries';
-const manifest: Record<string, string[]> = {};
-
 
 export const itineraries: Record<string, Itinerary> = {
   'highlands-to-hidden-water': {
@@ -17,12 +11,7 @@ export const itineraries: Record<string, Itinerary> = {
     difficulty: 'Intermediate',
     type: 'Multi-day',
     image: '/iteneraries/highlands-to-hidden-water/478ab1881123db8c8df1d020b188a5e3.jpg',
-    images: [
-      'iteneraries/highlands-to-hidden-water/478ab1881123db8c8df1d020b188a5e3.jpg',
-      'iteneraries/highlands-to-hidden-water/466365701_18446279086071186_833453234409540829_n.jpg',
-      'iteneraries/highlands-to-hidden-water/469418820_18450086416071186_8651404815514074393_n.jpg',
-      'iteneraries/highlands-to-hidden-water/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTE5MzY2NjQ2LzUwMDM3ZmM0MWNhZGJlZTVhZmNiMzNiMDc4NDg4NDM1Lm.webp',
-    ],
+    images: manifest['/iteneraries/highlands-to-hidden-water'] ?? [],
     overview: 'The ultimate Mindanao adventure route in the Philippines.',
     highlights: [
       'Davao City',
@@ -70,9 +59,7 @@ export const itineraries: Record<string, Itinerary> = {
     difficulty: 'Beginner',
     type: 'Hiking & Riding',
     image: '/iteneraries/crown-jewel-hike/471548536_18479366956019581_2726363955642537410_n.jpg',
-    images: [
-      '/iteneraries/crown-jewel-hike/471548536_18479366956019581_2726363955642537410_n.jpg',
-    ],
+    images: manifest['/iteneraries/crown-jewel-hike'] ?? [],
     overview: 'Lake Holon, also known as Lake Maughan, is a pristine crater lake nestled within Mount Melibengoy (formerly Mount Parker) in T’boli, South Cotabato, Philippines. Revered as the “Crown Jewel of the South,” this lake sits approximately 1,359 meters above sea level and spans over 3 square kilometers.',
     highlights: [
       'Lake Holon Crater',
@@ -111,9 +98,7 @@ export const itineraries: Record<string, Itinerary> = {
     difficulty: 'Expert',
     type: 'Mountaineering',
     image: 'https://picsum.photos/seed/mindanao/1920/1080?blur=1',
-    images:[
-      
-    ],
+    images: [],
     overview: 'The ultimate mountaineering and riding experience. Conquer the highest peak in the Philippines, Mount Apo. This journey takes you through dense forests, volcanic terrain, and breathtaking high-altitude landscapes.',
     highlights: [
       'Mount Apo Summit',
