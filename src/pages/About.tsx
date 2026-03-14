@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import { Target, Users, MapPin } from 'lucide-react';
-import { GeneratedImage } from '../components/GeneratedImage';
 
 export default function About() {
   return (
@@ -35,11 +34,11 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-[4/5] overflow-hidden border border-zinc-800 bg-zinc-900">
-              <GeneratedImage 
-                prompt="A breathtaking aerial drone view of a winding mountain highway cutting through lush green ridges, surrounded by dramatic rolling hills and deep valleys. The road curves sharply along steep cliffs, forming elegant S-shaped turns across the mountainside. The landscape is covered in vibrant tropical grass and scattered vegetation, with rugged rocky slopes beneath the road. In the distance, layers of misty mountain ranges fade into the horizon, while low clouds and fog drift through the valleys, creating a dreamy and cinematic atmosphere. A small mountain village with red-roof houses sits near one of the bends in the road, adding scale to the vast landscape. Lighting is soft morning light with natural shadows, enhancing the textures of the hills and the depth of the valleys. The perspective is high-altitude drone photography, ultra-wide angle, capturing the sweeping curves of the road and the grandeur of the mountain terrain. Style: ultra-realistic landscape photography, cinematic drone shot, travel documentary style, vibrant natural colors, highly detailed terrain, atmospheric fog, adventure tourism aesthetic. Resolution: 8K ultra detailed Aspect Ratio: 16:9 (website hero image) Keywords: winding mountain road, aerial drone view, tropical highlands, scenic highway, dramatic cliffs, rolling green hills, misty mountains, cinematic travel landscape, adventure route."
-                alt="Winding mountain highway in Mindanao"
-                fallbackImage="https://picsum.photos/seed/about-riders/800/1000?blur=1"
+              <img 
+                src="https://picsum.photos/seed/about-riders/800/1000?blur=1" 
+                alt="Riders on a mountain pass" 
                 className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
               />
             </div>
             <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-orange-500 p-6 hidden md:flex flex-col justify-center">

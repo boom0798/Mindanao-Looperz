@@ -1,8 +1,11 @@
+import { Star } from 'lucide-react';
+
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Map, Mountain, Clock, Navigation, CheckCircle2, ArrowLeft, CalendarDays, ShieldAlert } from 'lucide-react';
 import { GeneratedImage } from '../components/GeneratedImage';
 import { GeneratedImageCarousel } from '../components/GeneratedImageCarousel';
+import { itineraryService } from '../data/iteneraries/services/itineraryService.ts';
 
 // Mock data for itineraries
 const itinerariesData: Record<string, any> = {
@@ -166,7 +169,7 @@ export default function ItineraryDetail() {
   // In a real app, we would fetch data based on the ID.
   // For now, we'll just use the mock data.
   const route = id && itinerariesData[id] ? itinerariesData[id] : itinerariesData['highlands-to-hidden-water'];
-
+  
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -178,15 +181,8 @@ export default function ItineraryDetail() {
               altPrefix={route.name}
               className="w-full h-full"
             />
-          ) : route.prompt ? (
-            <GeneratedImage 
-              prompt={route.prompt}
-              alt={route.name}
-              fallbackImage={route.image}
-              className="w-full h-full object-cover"
-            />
           ) : (
-            <img
+          <img
               src={route.image}
               alt={route.name}
               className="w-full h-full object-cover"
@@ -357,5 +353,3 @@ export default function ItineraryDetail() {
   );
 }
 
-// Add Star icon since it was missing from imports
-import { Star } from 'lucide-react';

@@ -3,7 +3,10 @@ import { motion } from 'motion/react';
 import { Map, Mountain, Clock, Navigation } from 'lucide-react';
 import { GeneratedImage } from '../components/GeneratedImage';
 import { GeneratedImageCarousel } from '../components/GeneratedImageCarousel';
+import { itineraryService } from '../data/iteneraries/services/itineraryService';
+import { ItineraryCarousel } from '../components/ItineraryCarousel';
 
+/**
 const itineraries = [
   {
     id: 'highlands-to-hidden-water',
@@ -90,8 +93,13 @@ const itineraries = [
     description: 'Discover the rich culture and challenging roads of the western peninsula.',
   },
 ];
+ */
+
 
 export default function Rides() {
+
+  const itineraries = itineraryService.getAll();
+
   return (
     <div className="w-full pt-24 pb-16">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
@@ -122,10 +130,10 @@ export default function Rides() {
               className="bg-zinc-950 border border-zinc-800 overflow-hidden group flex flex-col"
             >
               <div className="relative h-64 overflow-hidden">
-                {route.prompts ? (
-                  <GeneratedImageCarousel 
-                    prompts={route.prompts}
-                    altPrefix={route.name}
+                  {route.images && route.images.length > 0 ? (
+                    <ItineraryCarousel
+                      images={route.images}
+                      alt={route.name}
                     className="w-full h-full"
                   />
                 ) : (
@@ -143,7 +151,7 @@ export default function Rides() {
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-2xl font-bold uppercase tracking-tight mb-2">{route.name}</h3>
-                <p className="text-zinc-400 text-sm mb-6 flex-grow">{route.description}</p>
+                <p className="text-zinc-400 text-sm mb-6 flex-grow">{route.overview}</p>
                 
                 <div className="grid grid-cols-2 gap-4 mb-6 text-zinc-300 text-sm">
                   <div className="flex items-center gap-2">
