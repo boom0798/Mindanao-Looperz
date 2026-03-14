@@ -18,6 +18,8 @@ export interface Itinerary {
   type?: ItineraryType;
   image?: string;
   images?: string[];
+  localImages?: string[];
+  prompts?: string[];
   overview?: string;
   highlights?: string[];
   requirements?: string[];

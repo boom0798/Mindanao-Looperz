@@ -132,10 +132,12 @@ export default function Rides() {
               <div className="relative h-64 overflow-hidden">
                   {route.images && route.images.length > 0 ? (
                     <ItineraryCarousel
-                      images={route.images}
+                      images={route.images ?? []}
+                      prompts={route.prompts ?? []}
+                      image={route.image}
                       alt={route.name}
-                    className="w-full h-full"
-                  />
+                      className="w-full h-full"
+                    />
                 ) : (
                   <img 
                     src={route.image} 

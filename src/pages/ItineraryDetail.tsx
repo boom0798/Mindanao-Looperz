@@ -3,9 +3,9 @@ import { Star } from 'lucide-react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Map, Mountain, Clock, Navigation, CheckCircle2, ArrowLeft, CalendarDays, ShieldAlert } from 'lucide-react';
-import { GeneratedImage } from '../components/GeneratedImage';
-import { GeneratedImageCarousel } from '../components/GeneratedImageCarousel';
+
 import { itineraryService } from '../data/iteneraries/services/itineraryService.ts';
+import { ItineraryCarousel } from '../components/ItineraryCarousel.tsx';
 
 // Mock data for itineraries
 const itinerariesData: Record<string, any> = {
@@ -165,27 +165,34 @@ const itinerariesData: Record<string, any> = {
 
 export default function ItineraryDetail() {
   const { id } = useParams();
-  
-  // In a real app, we would fetch data based on the ID.
-  // For now, we'll just use the mock data.
-  const route = id && itinerariesData[id] ? itinerariesData[id] : itinerariesData['highlands-to-hidden-water'];
+  const route = itineraryService.getById(id ?? '');
+
+  if (!route) {
+    return (
+      <div className="flex items-center justify-center h-screen text-zinc-400">
+        <p>Itinerary not found.</p>
+      </div>
+    );
+  }
   
   return (
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end pb-16">
         <div className="absolute inset-0 z-0">
-          {route.prompts ? (
-            <GeneratedImageCarousel 
-              prompts={route.prompts}
-              altPrefix={route.name}
+          {route.images && route.images.length > 0 ? (
+            <ItineraryCarousel
+              images={route.images ?? []}
+              prompts={route.prompts ?? []}
+              image={route.image}
+              alt={route.name}
               className="w-full h-full"
             />
           ) : (
-          <img
-              src={route.image}
-              alt={route.name}
-              className="w-full h-full object-cover"
+            <img 
+              src={route.image} 
+              alt={route.name} 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
           )}
@@ -249,7 +256,7 @@ export default function ItineraryDetail() {
             <section>
               <h2 className="text-2xl font-bold uppercase tracking-tight mb-8">Daily Itinerary</h2>
               <div className="space-y-8">
-                {route.daily.map((day) => (
+                {(route.daily ?? []).map((day) => (
                   <div key={day.day} className="flex gap-6">
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center font-bold text-orange-500 shrink-0">
