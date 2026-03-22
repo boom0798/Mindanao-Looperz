@@ -4,47 +4,31 @@ import { GeneratedImage } from './GeneratedImage';
 
 interface CarouselProps {
   images: string[];
-  localImages?: string[];
-  prompts: string[];
+  prompts?: string[];
   alt: string;
   image?: string;
   className?: string;
 }
 
-const isPicsumImage = (src?: string) => src?.includes('picsum.photos') ?? false;
-
-export function ItineraryCarousel({ images, localImages, prompts, alt, image, className }: CarouselProps) {
+export function ItineraryCarousel({ images, prompts, alt, image, className }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [visited, setVisited] = useState<Set<number>>(new Set([0]));
   const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
 
-  const getMode = (): 'images' | 'prompts' | 'fallback' => {
-    const validImages = images.filter(img => !isPicsumImage(img));
-    if (validImages.length > 1) return 'images';
-    if (prompts && prompts.length > 0) return 'prompts';
-    return 'fallback';
-  };
+  // Priority: local images → single image fallback → prompts
+  const mode: 'images' | 'single' | 'prompts' =
+    images?.length > 0 ? 'images' :
+    image ? 'single' :
+    'prompts';
 
-  const mode = getMode();
-  const items = mode === 'images'
-    ? images.filter(img => !isPicsumImage(img))
-    : mode === 'prompts'
-    ? prompts
-    : image ? [image] : [];
+  const items: string[] =
+    mode === 'images' ? images :
+    mode === 'single' ? [image!] :
+    prompts ?? [];
 
   useEffect(() => {
     setCurrentIndex(0);
-    setVisited(new Set([0]));
     setFailedImages(new Set());
-  }, [mode]);
-
-  useEffect(() => {
-    setVisited((prev) => {
-      const newSet = new Set(prev);
-      newSet.add(currentIndex);
-      return newSet;
-    });
-  }, [currentIndex]);
+  }, [images]);
 
   const next = () => setCurrentIndex((i) => (i + 1) % items.length);
   const prev = () => setCurrentIndex((i) => (i - 1 + items.length) % items.length);
@@ -53,7 +37,7 @@ export function ItineraryCarousel({ images, localImages, prompts, alt, image, cl
     setFailedImages((prev) => new Set(prev).add(index));
   };
 
-  if (!items || items.length === 0) return null;
+  if (items.length === 0) return null;
 
   return (
     <div className={`relative group ${className}`}>
@@ -65,45 +49,24 @@ export function ItineraryCarousel({ images, localImages, prompts, alt, image, cl
               index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
-            {visited.has(index) ? (
-              mode === 'prompts' ? (
-                <GeneratedImage
-                  prompt={src}
-                  alt={`${alt} - Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              ) : failedImages.has(index) ? (
-                // 1st fallback — local manifest image
-                localImages?.[index] ? (
-                  <img
-                    src={localImages[index]}
-                    alt={`${alt} - Slide ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                // 2nd fallback — generated prompt image
-                ) : prompts?.[index] ? (
-                  <GeneratedImage
-                    prompt={prompts[index]}
-                    alt={`${alt} - Slide ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                // 3rd fallback — main image
-                ) : (
-                  <img
-                    src={image}
-                    alt={`${alt} - Slide ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                )
-              ) : (
-                <img
-                  src={src}
-                  alt={`${alt} - Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
-                  onError={() => handleImageError(index)}
-                />
-              )
-            ) : null}
+            {mode === 'prompts' ? (
+              <GeneratedImage
+                prompt={src}
+                alt={`${alt} - Slide ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            ) : failedImages.has(index) ? (
+              <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-sm">
+                Image unavailable
+              </div>
+            ) : (
+              <img
+                src={src}
+                alt={`${alt} - Slide ${index + 1}`}
+                className="w-full h-full object-cover"
+                onError={() => handleImageError(index)}
+              />
+            )}
           </div>
         ))}
       </div>
