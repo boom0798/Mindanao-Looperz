@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Map, Mountain, Waves, Coffee, Navigation, Star, ArrowRight } from 'lucide-react';
-import { GeneratedImage } from '../components/GeneratedImage';
 import { GeneratedImageCarousel } from '../components/GeneratedImageCarousel';
 
 import { itineraryService } from '../data/iteneraries/services/itineraryService';
+import { ItineraryCarousel } from '../components/ItineraryCarousel';
 
 const featuredLoops = itineraryService.getAll().filter(i => i.featured);
 
@@ -118,9 +118,11 @@ export default function Home() {
               <div key={loop.id} className="bg-zinc-950 border border-zinc-800 overflow-hidden group">
                 <div className="relative h-64 overflow-hidden">
                   {loop.prompts ? (
-                    <GeneratedImageCarousel 
-                      prompts={loop.prompts}
-                      altPrefix={loop.name}
+                    <ItineraryCarousel
+                      images={loop.images ?? []}
+                      prompts={loop.prompts ?? []}
+                      image={loop.image}
+                      alt={loop.name}
                       className="w-full h-full"
                     />
                   ) : (
