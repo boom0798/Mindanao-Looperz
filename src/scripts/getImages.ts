@@ -11,10 +11,15 @@ function getImages(folderPath: string): string[] {
     .map(file => `${folderPath}/${file}`);
 }
 
-const folders = [
-  '/iteneraries/highlands-to-hidden-water',
-  '/iteneraries/crown-jewel-hike'
-];
+function getFolders(basePath: string): string[] {
+  const absolutePath = path.join('public', basePath);
+  return fs
+    .readdirSync(absolutePath)
+    .filter(name => fs.statSync(path.join(absolutePath, name)).isDirectory())
+    .map(name => `${basePath}/${name}`);
+}
+
+const folders = getFolders('/iteneraries');
 
 const manifest: Record<string, string[]> = {};
 folders.forEach(folder => {

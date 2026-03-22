@@ -11,17 +11,8 @@ export const itineraries: Record<string, Itinerary> = {
     price: '260 USD',
     difficulty: 'Intermediate',
     type: 'Multi-day',
-    image: 'https://i.pinimg.com/736x/62/f3/12/62f312f79497bd1749867636ed1f0021.jpg',
-    images: [
-      'https://i.pinimg.com/736x/62/f3/12/62f312f79497bd1749867636ed1f0021.jpg',
-      'https://i.pinimg.com/1200x/24/05/db/2405dbdebdb91482433414d92f9170db.jpg',
-      'https://i.pinimg.com/1200x/fb/30/8e/fb308e07ff51b26ea9b030556a8977b6.jpg',
-      'https://i.pinimg.com/736x/86/44/98/86449867476045f6612b9e858cbad349.jpg',
-      'https://i.pinimg.com/1200x/ce/ab/ba/ceabba7d8ccefd1748e827c3ad309c69.jpg',
-      'https://i.pinimg.com/736x/ba/7b/43/ba7b43aae1e0281909143d4bc58b8385.jpg',
-      'https://i.pinimg.com/736x/4b/24/ab/4b24ab18d6fb45176eb6ae3a762a5c1c.jpg'
-    ],
-    localImages: manifest['/iteneraries/highlands-to-hidden-water']??[],
+    image: manifest['/iteneraries/highlands-to-hidden-water']?.[0],
+    images: manifest['/iteneraries/highlands-to-hidden-water']??[],
     prompts: [
       "Aerial cityscape sunrise over Davao City with Mount Apo visible in the distance, golden hour lighting, modern tropical city vibe. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
       "Mountain road adventure in Talaingod, rugged highlands, dramatic clouds, raw untouched landscape. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
@@ -77,13 +68,8 @@ export const itineraries: Record<string, Itinerary> = {
     duration: '2 Days 1 Night',
     difficulty: 'Beginner',
     type: 'Hiking & Riding',
-    image: 'https://i.pinimg.com/1200x/1c/1b/e0/1c1be00dc05e6248044dbe7a86d15bb6.jpg',
-    images: [
-      'https://i.pinimg.com/1200x/1c/1b/e0/1c1be00dc05e6248044dbe7a86d15bb6.jpg',
-      'https://i.pinimg.com/1200x/50/cb/87/50cb87543c7408357d79ebc6602cdab5.jpg',
-      'https://i.pinimg.com/736x/bb/cc/46/bbcc469a619be2101406bcc7a944246b.jpg',
-    ],
-    localImages: manifest['/iteneraries/crown-jewel-hike'] ?? [],
+    image: manifest['/iteneraries/crown-jewel-hike']?.[0],
+    images: manifest['/iteneraries/crown-jewel-hike'] ?? [],
     prompts: [
       "Lake Holon volcanic crater lake, emerald green water surrounded by forested mountains, sunrise mist, peaceful and majestic. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
       "Trekker standing on the rim of Lake Holon crater, looking down at the turquoise water, adventure gear, morning light. Maintain consistent color grading across all images, high detail, realistic lighting, travel documentary style, National Geographic quality, ultra sharp focus, HDR, wide-angle lens, epic nature adventure theme. No text overlay. Clean composition. Instagram travel campaign aesthetic.",
@@ -126,12 +112,8 @@ export const itineraries: Record<string, Itinerary> = {
     duration: '2 Days 1 Night',
     difficulty: 'Expert',
     type: 'Mountaineering',
-    image: 'https://i.pinimg.com/736x/bf/3e/63/bf3e63c7c0f5bd587f94a853bb3891ce.jpg',
-    images: [
-      'https://i.pinimg.com/736x/bf/3e/63/bf3e63c7c0f5bd587f94a853bb3891ce.jpg',
-      'https://i.pinimg.com/736x/ad/60/22/ad60227ac792d2cc67cba0380b9897b4.jpg',
-      'https://i.pinimg.com/1200x/71/eb/2c/71eb2c13cc39a3780be2ec6083efceae.jpg',
-    ],
+    image: manifest['/iteneraries/apo-conquer-the-king']?.[0],
+    images: manifest['/iteneraries/apo-conquer-the-king'] ?? [],
     prompts: [
       "Sunrise view of Mount Apo peak above the clouds, golden light hitting rocky summit, dramatic sky, aerial wide-angle shot. No text overlay, ultra-detailed textures, realistic skin tones if hikers are visible, adventure documentary style, professional DSLR quality, vibrant yet natural colors, cinematic storytelling sequence.",
       "Dense mossy forest trail with towering trees and thick fog, hikers walking with headlamps, mystical rainforest atmosphere. No text overlay, ultra-detailed textures, realistic skin tones if hikers are visible, adventure documentary style, professional DSLR quality, vibrant yet natural colors, cinematic storytelling sequence.",
