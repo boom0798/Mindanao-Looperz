@@ -6,10 +6,12 @@ export const itineraries: Record<string, Itinerary> = {
   'highlands-to-hidden-water': {
     id: 'highlands-to-hidden-water',
     name: 'Highlands to hidden water (Ultimate loop)',
+    featured: true,
     distance: '803 km',
     duration: '4 Days',
     price: '260 USD',
     difficulty: 'Intermediate',
+    terrain: 'Mixed (Paved & Gravel)',
     type: 'Multi-day',
     image: manifest['/iteneraries/highlands-to-hidden-water']?.[0],
     images: manifest['/iteneraries/highlands-to-hidden-water']??[],
@@ -40,6 +42,7 @@ export const itineraries: Record<string, Itinerary> = {
       'Basic tool kit and tire repair kit',
       'Rain gear'
     ],
+
     daily: [
       {
         day: 1,
@@ -64,9 +67,11 @@ export const itineraries: Record<string, Itinerary> = {
   'crown-jewel-hike': {
     id: 'crown-jewel-hike',
     name: 'Crown Jewel Hike',
+    featured: true,
     distance: '216 KM',
     duration: '2 Days 1 Night',
     difficulty: 'Beginner',
+    terrain: 'Crater Lake Trek',
     type: 'Hiking & Riding',
     image: manifest['/iteneraries/crown-jewel-hike']?.[0],
     images: manifest['/iteneraries/crown-jewel-hike'] ?? [],
@@ -108,9 +113,11 @@ export const itineraries: Record<string, Itinerary> = {
   'apo-conquer-the-king': {
     id: 'apo-conquer-the-king',
     name: 'Apo: Conquer the King of Philippine Peaks',
+    featured: true,
     distance: '2,954 meters above sea level',
     duration: '2 Days 1 Night',
     difficulty: 'Expert',
+    terrain: 'The highest mountain in the Philippines',
     type: 'Mountaineering',
     image: manifest['/iteneraries/apo-conquer-the-king']?.[0],
     images: manifest['/iteneraries/apo-conquer-the-king'] ?? [],
@@ -160,6 +167,7 @@ export const itineraries: Record<string, Itinerary> = {
   'buda-day-loop': {
     id: 'buda-day-loop',
     name: 'BuDa Day Loop',
+    featured: false,
     distance: '250 km',
     duration: '1 Day',
     difficulty: 'Beginner',
@@ -170,6 +178,7 @@ export const itineraries: Record<string, Itinerary> = {
   'Surigao Coastal Run': {
     id: 'surigao-coast-run',
     name: 'Surigao Coastal Run',
+    featured: false,
     distance: '450 km',
     duration: '2-3 Days',
     difficulty: 'Intermediate',
@@ -180,6 +189,7 @@ export const itineraries: Record<string, Itinerary> = {
   'Zamboanga Peninsula': {
     id: 'zamboanga-peninsula',
     name: 'Zamboanga Peninsula',
+    featured: false,
     distance: '900 km',
     duration: '5-7 Days',
     difficulty: 'Advanced',

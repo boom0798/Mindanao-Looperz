@@ -11,10 +11,12 @@ export interface DailyItinerary {
 export interface Itinerary {
   id: string;
   name: string;
+  featured: boolean;
   distance?: string;      
   duration?: string;
   price?: string;
   difficulty?: Difficulty;
+  terrain?: string;
   type?: ItineraryType;
   image?: string;
   images?: string[];
