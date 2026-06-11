@@ -23,9 +23,9 @@ public class IteneraryRequirements {
     @Column(name = "requirements", nullable = false)
     @NotBlank(message = "Missing requirement text")
     @Size(min = 3, max = 100, message = "Requirements must be between 3 and 100 characters")
-    private String highlights;
+    private String requirements;
 
     @ManyToOne
     @JoinColumn(name = "itinerary_id", nullable = false)
-    private Iteneraries itenerary;
+    private Iteneraries itinerary;
 }

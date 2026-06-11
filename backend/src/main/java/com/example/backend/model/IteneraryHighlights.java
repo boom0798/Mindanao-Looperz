@@ -27,5 +27,5 @@ public class IteneraryHighlights {
 
     @ManyToOne
     @JoinColumn(name = "itinerary_id", nullable = false)
-    private Iteneraries itenerary;
+    private Iteneraries itinerary;
 }

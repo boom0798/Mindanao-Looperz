@@ -1,4 +1,4 @@
-package com.example.backend.Specification;
+package com.example.backend.specification;
 
 import java.util.ArrayList;
 import java.util.List;

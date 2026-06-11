@@ -89,13 +89,13 @@ public class Iteneraries {
     }
 
     //Relationships
-    @OneToMany(mappedBy = "itinerary", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "itinerary", cascade = CascadeType.ALL, orphanRemoval = true)
     @Size(min = 1, message = "At least one image is required")
     private List<IteneraryImages> images = new ArrayList<>();
 
-    @OneToMany(mappedBy = "itinerary", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "itinerary", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<IteneraryHighlights> highlights = new ArrayList<>();
 
-    @OneToMany(mappedBy = "itinerary", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "itinerary", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<IteneraryRequirements> requirements = new ArrayList<>();
 }
